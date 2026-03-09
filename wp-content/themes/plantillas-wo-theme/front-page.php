@@ -5,14 +5,24 @@
         <h1>Plantillas PSD de Documentos 100% Editables</h1>
         <p>Descarga al instante pasaportes, DNI, licencias y cédulas en alta resolución (300 DPI).</p>
         <div class="search-box">
-            <?php echo get_product_search_form(); ?>
+            <?php 
+            if ( class_exists( 'WooCommerce' ) ) {
+                echo get_product_search_form(); 
+            }
+            ?>
         </div>
     </div>
 </section>
 
 <section class="featured-products container">
     <h2 class="section-title">Últimas Plantillas Añadidas</h2>
-    <?php echo do_shortcode('[products limit="8" columns="4" orderby="date" order="DESC"]'); ?>
+    <?php 
+    if ( class_exists( 'WooCommerce' ) ) {
+        echo do_shortcode('[products limit="8" columns="4" orderby="date" order="DESC"]'); 
+    } else {
+        echo '<p style="text-align:center;">Instala y activa WooCommerce para ver los productos.</p>';
+    }
+    ?>
 </section>
 
 <section class="seo-content container">

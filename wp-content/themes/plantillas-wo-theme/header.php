@@ -25,9 +25,11 @@
             ?>
         </nav>
         <div class="header-cta">
-            <a href="<?php echo wc_get_cart_url(); ?>" class="cart-link">
-                <span class="dashicons dashicons-cart"></span> <?php echo WC()->cart->get_cart_total(); ?>
-            </a>
+            <?php if ( class_exists( 'WooCommerce' ) ) : ?>
+                <a href="<?php echo wc_get_cart_url(); ?>" class="cart-link">
+                    <span class="dashicons dashicons-cart"></span> <?php echo WC()->cart->get_cart_total(); ?>
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 </header>
